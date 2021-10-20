@@ -2,6 +2,7 @@
 
 #### We carried out this project in an internship at CURI - University Center for informatics Resources -,                                The subject : Management of students registered for continuing formations at ibn tofail university.
 
+----------------------------------------------------------------------------------------------------------------
 
 #### Laravel Auth is a Complete Build of Laravel 8 with Email Registration Verification, Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system. Built on Bootstrap 4.
 [![Build Status](https://travis-ci.org/jeremykenedy/laravel-auth.svg?branch=master)](https://travis-ci.org/jeremykenedy/laravel-auth)
