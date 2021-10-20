@@ -72,7 +72,10 @@ class Handler extends ExceptionHandler
             $exception instanceof \jeremykenedy\LaravelRoles\App\Exceptions\PermissionDeniedException ||
             $exception instanceof \jeremykenedy\LaravelRoles\App\Exceptions\LevelDeniedException;
 
-        if ($userLevelCheck) {
+
+           
+        /*if ($userLevelCheck) {
+            dd($userLevelCheck);
             if ($request->expectsJson()) {
                 return Response::json([
                     'error'     => 403,
@@ -81,7 +84,7 @@ class Handler extends ExceptionHandler
             }
 
             abort(403);
-        }
+        }*/
 
         return parent::render($request, $exception);
     }

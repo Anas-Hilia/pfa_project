@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectAfterLogout = '/';
+    protected $redirectAfterLogout = '/login';
 
     /**
      * Create a new controller instance.
@@ -47,8 +47,7 @@ class LoginController extends Controller
      */
     public function logout()
     {
-        // $user = Auth::user();
-        // Log::info('User Logged Out. ', [$user]);
+        
         Auth::logout();
         Session::flush();
 

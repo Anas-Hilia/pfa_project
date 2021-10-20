@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Models\User;
+use Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,14 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //Gates
+        Gate::define('edit-user',function(User $user){
+            return $user->id == Auth::User()->id;
+
+        });
+        Gate::define('update-user',function(User $user){
+            return $user->id == Auth::User()->id;
+
+        });
     }
 }

@@ -7,14 +7,12 @@
 @section('content')
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10 offset-md-1">
-				<div class="panel panel-danger">
-					<div class="panel-heading">
-						{!! trans('titles.exceeded') !!}
-					</div>
-					<div class="panel-body">
+			<div class="col-md-10  offset-md-1">
+				<div class="card card-default ">
+					<div class="card-header bg-danger text-white">{!! trans('titles.exceeded') !!}</div>
+					<div class="card-body">
 						<p>
-							{!! trans('auth.tooManyEmails', ['email' => $email, 'hours' => $hours]) !!}
+							{!! trans('auth.tooManyEmails', ['email' => '<strong>'.$email.'</strong>', 'hours' => '<strong>'.$hours.'</strong>']) !!}
 						</p>
 					</div>
 				</div>

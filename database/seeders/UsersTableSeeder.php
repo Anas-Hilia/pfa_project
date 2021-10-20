@@ -26,15 +26,13 @@ class UsersTableSeeder extends Seeder
         $user = User::where('email', '=', $seededAdminEmail)->first();
         if ($user === null) {
             $user = User::create([
-                'name'                           => 'Admin',
                 'first_name'                     => 'Harry',
                 'last_name'                      => 'Potter',
                 'email'                          => $seededAdminEmail,
                 'password'                       => Hash::make('password'),
                 'token'                          => str_random(64),
                 'activated'                      => true,
-                'signup_confirmation_ip_address' => '127.0.0.1',
-                'admin_ip_address'               => '127.0.0.1',
+                
             ]);
 
             $user->profile()->save($profile);
@@ -46,15 +44,13 @@ class UsersTableSeeder extends Seeder
         $user = User::where('email', '=', 'user@user.com')->first();
         if ($user === null) {
             $user = User::create([
-                'name'                           => 'User',
                 'first_name'                     => 'Hermione',
                 'last_name'                      => 'Granger',
                 'email'                          => 'user@user.com',
                 'password'                       => Hash::make('password'),
                 'token'                          => str_random(64),
                 'activated'                      => true,
-                'signup_ip_address'              => '127.0.0.1',
-                'signup_confirmation_ip_address' => '127.0.0.1',
+                
             ]);
 
             $user->profile()->save(new Profile());

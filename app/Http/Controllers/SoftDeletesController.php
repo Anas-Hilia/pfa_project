@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
+use Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use jeremykenedy\LaravelRoles\Models\Role;
@@ -14,8 +15,23 @@ class SoftDeletesController extends Controller
      * @return void
      */
     public function __construct()
-    {
-        $this->middleware('auth');
+    {   
+        $this->middleware(function ($request, $next) {
+            //begin---permissions
+            $this->AuthUserRole=DB::select('select role_id from role_user where user_id =' . Auth::user()->id);
+            $this->AuthUserRole=$this->AuthUserRole[0]->role_id;
+            Auth::user()->currentUserRole = $this->AuthUserRole;
+
+            if($this->AuthUserRole != 1){
+                abort(403,trans('Access Denied'));
+            }
+            //end---permissions
+
+            return $next($request);
+          });
+
+
+          
     }
 
     /**
@@ -42,6 +58,8 @@ class SoftDeletesController extends Controller
      */
     public function index()
     {
+        
+
         $users = User::onlyTrashed()->get();
         $roles = Role::all();
 
@@ -57,9 +75,40 @@ class SoftDeletesController extends Controller
      */
     public function show($id)
     {
-        $user = self::getDeletedUser($id);
+        $userRole = DB::select('select role_id from role_user where user_id =' . $id);
+        $currentRole=$userRole[0]->role_id;
+        $formation=NULL;
 
-        return view('usersmanagement.show-deleted-user')->withUser($user);
+        if($currentRole=="3"){
+        
+            $user = User::onlyTrashed()
+                    ->select('*','users.created_at AS created_at','users.updated_at AS updated_at','users.deleted_at AS deleted_at')
+                    ->join('students', 'users.id', '=', 'students.id_user')
+                    ->join('bac_student', 'students.id_S', '=', 'bac_student.id_student')
+                    ->join('diploma_student', 'students.id_S', '=', 'diploma_student.id_student')
+                    ->join('experience_student', 'students.id_S', '=', 'experience_student.id_student')
+                    ->where('users.id','=',$id)->first();
+            
+            $formation = User::select('formations.name as formation_name','formations.type as formation_type','branches_formations.name as formation_branche' )
+                    ->join('students', 'users.id', '=', 'students.id_user')
+                    ->join('branches_formations', 'branches_formations.id_BrF', '=', 'students.id_branche_formation')
+                    ->join('formations', 'formations.id', '=', 'branches_formations.id_formation')
+                    ->where('users.id','=',$id)->onlyTrashed()->first();
+        }
+        elseif($currentRole=="2"){
+            $user = User::onlyTrashed()
+            ->select('email','first_name','last_name','tel','establishment_prof',
+            'users.created_at','users.updated_at','users.deleted_at',
+            'id_formation','branches_formations.name as brfName')
+                    ->join('branches_formations', 'coordinateur', '=', 'users.id')
+                    ->where('users.id','=',$id)->first();
+        }
+
+        return view('usersmanagement.show-deleted-user')->with([
+            'user' => $user,
+            'currentRole' => $currentRole,
+            'formation' => $formation,
+        ]);
     }
 
     /**

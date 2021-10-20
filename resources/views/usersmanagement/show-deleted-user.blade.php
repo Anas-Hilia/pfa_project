@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {!!trans('usersmanagement.showing-user-deleted')!!} {{ $user->name }}
+    {!!trans('usersmanagement.showing-user-deleted')!!} {{ $user->last_name }}
 @endsection
 
 @php
@@ -25,7 +25,7 @@
                                 <a href="/users/deleted/" class="btn btn-light btn-sm float-right" data-toggle="tooltip" data-placement="left" title="{{ trans('usersmanagement.usersBackDelBtn') }}">
                                     <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
                                     <span class="sr-only">
-                                        {!! trans('usersmanagement.usersBackDelBtn') !!}
+                                        {!! trans('back to deleted users') !!}
                                     </span>
                                 </a>
                             </div>
@@ -35,11 +35,26 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-4 offset-sm-2 col-md-2 offset-md-3">
-                                <img src="@if ($user->profile && $user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}" class="rounded-circle center-block mb-3 mt-4 user-image">
+
+                              @php
+                                $avatarUser="admin";
+                                
+                                if($currentRole==2){
+                                    $avatarUser="prof";
+            
+                                }else if($currentRole==3){
+                                    $avatarUser="student";
+                                
+                                }
+                                
+                                  
+                              @endphp
+              
+                              <img src="{{ asset('custom_symlink/home_icons/'.$avatarUser.'_icon.png') }}" alt="{{ Auth::user()->last_name }}" class="rounded-circle center-block mb-3 mt-4 user-image">
                             </div>
                             <div class="col-sm-4 col-md-6">
                                 <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
-                                    {{ $user->name }}
+                                    {{ $user->last_name }}
                                 </h4>
                                 <p class="text-center text-left-tablet">
                                     <strong>
@@ -68,7 +83,7 @@
                         @if ($user->deleted_at)
                             <div class="col-sm-5 col-xs-6 text-larger">
                                 <strong>
-                                    {{ trans('usersmanagement.labelDeletedAt') }}
+                                    {{ trans('Deleted At :') }}
                                 </strong>
                             </div>
                             <div class="col-sm-7 text-warning">
@@ -78,293 +93,564 @@
                             <div class="clearfix"></div>
                             <div class="border-bottom"></div>
                         @endif
+                      
+            
 
-                        @if ($user->deleted_ip_address)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelIpDeleted') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7 text-warning">
-                                {{ $user->deleted_ip_address }}
-                            </div>
+            @if ($user->email)
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+            <div class="col-sm-5 col-6 text-larger">
+              <strong>
+                {{ trans('Email :') }}
+              </strong>
+            </div>
 
-                        @if ($user->name)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelUserName') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                {{ $user->name }}
-                            </div>
+            <div class="col-sm-7">
+              <span data-toggle="tooltip" data-placement="top" title="{{ trans('usersmanagement.tooltips.email-user', ['user' => $user->email]) }}">
+                {{ HTML::mailto($user->email, $user->email) }}
+              </span>
+            </div>
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+            <div class="clearfix"></div>
+            <div class="border-bottom"></div>
 
-                        @if ($user->email)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelEmail') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                {{ HTML::mailto($user->email, $user->email) }}
-                            </div>
+            @endif
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+            @if ($user->first_name)
 
-                        @if ($user->first_name)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelFirstName') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                {{ $user->first_name }}
-                            </div>
+              <div class="col-sm-5 col-6 text-larger">
+                <strong>
+                  {{ trans('First Name :') }}
+                </strong>
+              </div>
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+              <div class="col-sm-7">
+                {{ $user->first_name }}
+              </div>
 
-                        @if ($user->last_name)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelLastName') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                {{ $user->last_name }}
-                            </div>
+              <div class="clearfix"></div>
+              <div class="border-bottom"></div>
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+            @endif
 
-                        <div class="col-sm-5 col-xs-6 text-larger">
+            @if ($user->last_name)
+
+              <div class="col-sm-5 col-6 text-larger">
+                <strong>
+                  {{ trans('Last Name :') }}
+                </strong>
+              </div>
+
+              <div class="col-sm-7">
+                {{ $user->last_name }}
+              </div>
+
+              
+
+            @endif
+            
+            @if ($user->tel)
+
+              <div class="clearfix"></div>
+              <div class="border-bottom"></div>
+
+              <div class="col-sm-5 col-6 text-larger">
+                <strong>
+                  {{ trans('Phone Number : ') }}
+                </strong>
+              </div>
+
+              <div class="col-sm-7">
+                {{ $user->tel }}
+              </div>
+
+              
+
+            @endif
+
+            @if ($user->establishment_prof)
+
+              <div class="clearfix"></div>
+              <div class="border-bottom"></div>
+
+              <div class="col-sm-5 col-6 text-larger">
+                <strong>
+                  {{ trans('Establishment :') }}
+                </strong>
+              </div>
+
+              <div class="col-sm-7">
+                {{ $user->establishment_prof }}
+              </div>
+
+            @endif
+
+            @if($currentRole=='3')
+
+              <div class="border-bottom mb-3"></div>
+              <h5 style="font-family: Georgia, serif ; color:green;" class="mb-4 ml-3" >
+                {{trans('Personnal informations :')}}
+              </h5> 
+          
+              <div class="d-flex ml-4" style="column-gap: 10px">
+                @if ($user->CIN)
+                  <div class="">
+                      <div class="text-larger">
+                        <strong>
+                          {{ trans('CIN : ') }}
+                        </strong>
+                      </div>
+                  </div>
+                  <div class="">
+                    {{ $user->CIN }}
+                  </div>
+                @endif
+              </div>
+
+              <div class="d-flex ml-4" style="column-gap: 10px">
+                @if ($user->CNE)
+                <div class="">
+                    <div class="text-larger">
+                      <strong>
+                        {{ trans('CNE : ') }}
+                      </strong>
+                    </div>
+                </div>
+                <div class="">
+                  {{ $user->CNE }}
+                </div>
+                @endif     
+              </div>
+              
+              <div class="d-flex ml-4" style="column-gap: 10px">  
+                @if ($user->date_birth)
+                  <div class="">
+                      <div class="text-larger">
+                        <strong>
+                          {{ trans('Date of Birth : ') }}
+                        </strong>
+                      </div>
+                  </div>
+                  <div class="">
+                    {{ $user->date_birth }}
+                  </div>
+                @endif
+              </div>
+
+              <div class="d-flex ml-4" style="column-gap: 10px">
+                @if ($user->place_birth)
+                  <div class="">
+                      <div class="text-larger">
+                        <strong>
+                          {{ trans('Place of Birth : ') }}
+                        </strong>
+                      </div>
+                  </div>
+                  <div class="">
+                    {{ $user->place_birth }}
+                  </div>
+                @endif     
+              </div>
+
+              <div class="border-bottom m-3"></div>
+              <h5 style="font-family: Georgia, serif ; color:green;" class="mb-4 ml-3" >
+                {{trans('Bachelor :')}}
+              </h5>
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                    @if ($user->serie)
+                      <div class="">
+                          <div class="text-larger">
                             <strong>
-                                {{ trans('usersmanagement.labelRole') }}
+                              {{ trans('Serie : ') }}
                             </strong>
-                        </div>
-                        <div class="col-sm-7">
-                            @foreach ($user->roles as $user_role)
-                                @if ($user_role->name == 'User')
-                                    @php $badgeClass = 'primary' @endphp
-                                @elseif ($user_role->name == 'Admin')
-                                    @php $badgeClass = 'warning' @endphp
-                                @elseif ($user_role->name == 'Unverified')
-                                    @php $badgeClass = 'danger' @endphp
-                                @else
-                                    @php $badgeClass = 'default' @endphp
-                                @endif
-                                <span class="badge badge-{{$badgeClass}}">{{ $user_role->name }}</span>
-                            @endforeach
-                        </div>
+                          </div>
+                      </div>
+                      <div class="">
+                        {{ $user->serie }}
+                      </div>
+                    @endif 
+                </div>
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                  @if ($user->academy)
+                    <div class="">
+                    
+                      <div class="text-larger">
+                        <strong>
+                          {{ trans('Academy :') }}
+                        </strong>
+                      </div>
+                    
+                    </div>
+                      
+                    <div class="">
+                      {{ $user->academy }}
+                    </div>
+                  @endif 
+                </div>
 
-                        <div class="clearfix"></div>
-                        <div class="border-bottom"></div>
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                  @if ($user->establishment_1)
+                    <div class="">
+                    
+                      <div class="text-larger">
+                        <strong>
+                          {{ trans('Establishment :') }}
+                        </strong>
+                      </div>
+                    
+                    </div>
+                      
+                    <div class="">
+                      {{ $user->establishment_1 }}
+                    </div>
+                  @endif
+                </div>
+              
+              <div class="border-bottom m-3"></div>
+              <h5 style="font-family: Georgia, serif ; color:green;" class="mb-4 ml-3" >
+                {{trans('Academic training :')}}
+              </h5> 
+            
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                  @if ($user->diploma)
+                    <div class="">
+                        <div class="text-larger">
+                          <strong>
+                            {{ trans('Diploma : ') }}
+                          </strong>
+                        </div>
+                    </div>
+                    <div class="">
+                      {{ $user->diploma }}
+                    </div>
+                  @endif 
+                </div>
 
-                        <div class="col-sm-5 col-xs-6 text-larger">
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                  @if ($user->date_obtained)
+                    <div class="">
+                        <div class="text-larger">
+                          <strong>
+                            {{ trans('date_obtained : ') }}
+                          </strong>
+                        </div>
+                    </div>
+                    <div class="">
+                      {{ $user->date_obtained }}
+                    </div>
+                  @endif 
+                </div>
+
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                  @if ($user->establishment_2)
+                      <div class="">
+                          <div class="text-larger">
                             <strong>
-                                {{ trans('usersmanagement.labelStatus') }}
+                              {{ trans('Establishment : ') }}
                             </strong>
+                          </div>
+                      </div>
+                      <div class="">
+                        {{ $user->establishment_2 }}
+                      </div>
+                    @endif   
+              </div>
+              
+          
+              
+              <div class="border-bottom m-3"></div>
+              <h5 style="font-family: Georgia, serif ; color:green;" class="mb-4 ml-3" >
+                {{trans('Experience professionnelle :')}}
+              </h5> 
+            
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                  @if ($user->employer_organization)
+                    <div class="">
+                        <div class="text-larger">
+                          <strong>
+                            {{ trans('Employer organization : ') }}
+                          </strong>
                         </div>
-                        <div class="col-sm-7">
-                            @if ($user->activated == 1)
-                                <span class="badge badge-success">
-                                    Activated
-                                </span>
-                            @else
-                                <span class="badge badge-danger">
-                                    Not-Activated
-                                </span>
-                            @endif
+                    </div>
+                    <div class="">
+                      {{ $user->employer_organization }}
+                    </div>
+                  @endif
+                </div>
+
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                  @if ($user->poste_occupied)
+                    <div class="">
+                        <div class="text-larger">
+                          <strong>
+                            {{ trans('Poste occupied : ') }}
+                          </strong>
                         </div>
+                    </div>
+                    <div class="">
+                      {{ $user->poste_occupied }}
+                    </div>
+                  @endif     
+                </div>
+              
+              <div class="border-bottom m-3"></div>
+              <h5 style="font-family: Georgia, serif ; color:green;" class="mb-4 ml-3" >
+                  {{trans('Formation chosed : ')}} 
+              </h5>
 
-                        <div class="clearfix"></div>
-                        <div class="border-bottom"></div>
-
-                        <div class="col-sm-5 col-xs-6 text-larger">
+                  <div class="d-flex ml-4" style="column-gap: 10px">
+                    @if ($formation->formation_name)
+                      <div class="">
+                          <div class="text-larger">
                             <strong>
-                                {{ trans('usersmanagement.labelAccessLevel')}} {{ $levelAmount }}
+                              {{ trans('Name : ') }}
                             </strong>
+                          </div>
+                      </div>
+                      <div class="">
+                        {{ $formation->formation_name }}
+                      </div>
+                    @endif 
+                  </div>
+
+                  <div class="d-flex ml-4" style="column-gap: 10px">
+                    @if ($formation->formation_type)
+                      <div class="">
+                      
+                        <div class="text-larger">
+                          <strong>
+                            {{ trans('Type :') }}
+                          </strong>
                         </div>
-                        <div class="col-sm-7">
-                            @if($user->level() >= 5)
-                                <span class="badge badge-primary margin-half ml-0">5</span>
-                            @endif
+                      
+                      </div>
+                        
+                      <div class="">
+                        {{ $formation->formation_type }}
+                      </div>
+                    @endif 
+                  </div>  
 
-                            @if($user->level() >= 4)
-                                <span class="badge badge-info margin-half ml-0">4</span>
-                            @endif
+                <div class="d-flex ml-4" style="column-gap: 10px">
+                  @if ($formation->formation_branche)
+                    <div class="">
+                    
+                      <div class="text-larger">
+                        <strong>
+                          {{ trans('Branche:') }}
+                        </strong>
+                      </div>
+                    
+                    </div>
+                      
+                    <div class="">
+                      {{ $formation->formation_branche }}
+                    </div>
+                  @endif
+                </div>
 
-                            @if($user->level() >= 3)
-                                <span class="badge badge-success margin-half ml-0">3</span>
-                            @endif
+              @if ($user->tranche_1 && $user->tranche_2)
+                <div class="clearfix"></div>
+                <div class="border-bottom m-3"></div>
+                <h5 style="font-family: Georgia, serif ; color:green;" class="mb-4 ml-3" >
+                    Payment :
+                </h5> 
+                
 
-                            @if($user->level() >= 2)
-                                <span class="badge badge-warning margin-half ml-0">2</span>
-                            @endif
-
-                            @if($user->level() >= 1)
-                                <span class="badge badge-default margin-half ml-0">1</span>
-                            @endif
-                        </div>
-
-                        <div class="clearfix"></div>
-                        <div class="border-bottom"></div>
-
-                        <div class="col-sm-5 col-xs-6 text-larger">
+                <div class="d-flex justify-content-center mb-3">  
+                  @if ($user->tranche_1)
+                      <div class="">
+                          <div class="text-larger">
                             <strong>
-                                {{ trans('usersmanagement.labelPermissions') }}
+                              {{ trans('Tranche 1 : ') }}
                             </strong>
+                          </div>
+                      </div>
+                      <div class="">
+                        {{ $user->tranche_1 }}
+                        <br/>
+                        <br/>
+                        
+                        <img src="{{asset("custom_symlink/".$user->tranche_1)}}" class="img-thumbnail payment_img" style="width:200px; height:200px;" >
+                      </div>
+                    @endif
+                    @if ($user->tranche_2)
+                    <div class="">
+                        <div class="text-larger">
+                          <strong>
+                            {{ trans('Tranche 2 : ') }}
+                          </strong>
                         </div>
-                        <div class="col-sm-7">
-                            @if($user->canViewUsers())
-                                <span class="badge badge-primary margin-half margin-left-0">
-                                    {{ trans('permsandroles.permissionView') }}
-                                </span>
-                            @endif
+                    </div>
+                    <div class="">
+                      {{ $user->tranche_2 }}
+                      <br/>
+                      <br/>
+                      
+                      <img src="{{asset("custom_symlink/".$user->tranche_2)}}" class="img-thumbnail payment_img" style="width:200px; height:200px;" >
 
-                            @if($user->canCreateUsers())
-                                <span class="badge badge-info margin-half margin-left-0">
-                                    {{ trans('permsandroles.permissionCreate') }}
-                                </span>
-                            @endif
+                      
+                    </div>
+                  @endif     
+                </div>
+              @endif
+            @endif
+            <div class="clearfix"></div>
+            <div class="border-bottom"></div>
 
-                            @if($user->canEditUsers())
-                                <span class="badge badge-warning margin-half margin-left-0">
-                                    {{ trans('permsandroles.permissionEdit') }}
-                                </span>
-                            @endif
+            
+            <div class="col-sm-5 col-6 text-larger">
+              <strong>
+                {{ trans('Role : ') }}
+              </strong>
+            </div>
 
-                            @if($user->canDeleteUsers())
-                                <span class="badge badge-danger margin-half margin-left-0">
-                                    {{ trans('permsandroles.permissionDelete') }}
-                                </span>
-                            @endif
-                        </div>
+            <div class="col-sm-7">
+               
+                
+                @if ($currentRole == '1')
+                  @php 
+                    $badgeClass = 'warning';
+                    $userRole = "Admin" ;
+                  @endphp
 
-                        <div class="clearfix"></div>
-                        <div class="border-bottom"></div>
+                @elseif ($currentRole == '2')
+                  @php 
+                    $badgeClass = 'primary';
+                    $userRole = 'Professor'; 
+                  @endphp
 
-                        @if ($user->created_at)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelCreatedAt') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                {{ $user->created_at }}
-                            </div>
+                @elseif ($currentRole == '3')
+                  @php 
+                    $badgeClass = 'success' ;
+                    $userRole = "Student" ;
+                  @endphp
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+                @else
+                  @php $badgeClass = 'default' @endphp
 
-                        @if ($user->updated_at)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelUpdatedAt') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                {{ $user->updated_at }}
-                            </div>
+                @endif
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+                <span class="badge badge-{{$badgeClass}}">{{ trans($userRole) }}</span>
 
-                        @if ($user->signup_ip_address)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelIpEmail') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                <code>
-                                {{ $user->signup_ip_address }}
-                                </code>
-                            </div>
+            </div>
+            
+          {{-- if the user is prof and he is coordinator of an formation --}}
+          
+          @if ($user->brfName)
+            <div class="clearfix"></div>
+            <div class="border-bottom"></div>
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+            <div class="col-sm-5 col-6 text-larger">
+              <strong>
+                {{ trans('Coordinator of the formation :') }}
+              </strong>
+            </div>
 
-                        @if ($user->signup_confirmation_ip_address)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelIpConfirm') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                <code>
-                                {{ $user->signup_confirmation_ip_address }}
-                                </code>
-                            </div>
+            <div class="col-sm-12">
+              <a href="{{URL::TO('BranchesFs/'.$user->id_formation)}}" >{{ $user->brfName }}</a>
+            </div>
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+            
 
-                        @if ($user->signup_sm_ip_address)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelIpSocial') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                <code>
-                                {{ $user->signup_sm_ip_address }}
-                                </code>
-                            </div>
+            @endif
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
 
-                        @endif
+            {{-- <div class="clearfix"></div>
+            <div class="border-bottom"></div>
 
-                        @if ($user->admin_ip_address)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelIpAdmin') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                <code>
-                                {{ $user->admin_ip_address }}
-                                </code>
-                            </div>
+            <div class="col-sm-5 col-6 text-larger">
+              <strong>
+                {{ trans('usersmanagement.labelStatus') }}
+              </strong>
+            </div>
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
-                        @endif
+            <div class="col-sm-7">
+              @if ($user->activated == 1)
+                <span class="badge badge-success">
+                  Activated
+                </span>
+              @else
+                <span class="badge badge-danger">
+                  Not-Activated
+                </span>
+              @endif
+            </div> --}}
 
-                        @if ($user->updated_ip_address)
-                            <div class="col-sm-5 col-xs-6 text-larger">
-                                <strong>
-                                {{ trans('usersmanagement.labelIpUpdate') }}
-                                </strong>
-                            </div>
-                            <div class="col-sm-7">
-                                <code>
-                                {{ $user->updated_ip_address }}
-                                </code>
-                            </div>
+            
 
-                            <div class="clearfix"></div>
-                            <div class="border-bottom"></div>
+            
+            
 
-                        @endif
+            
+            {{-- <div class="col-sm-5 col-6 text-larger">
+              <strong>
+                {{ trans('usersmanagement.labelPermissions') }}
+              </strong>
+            </div>
+
+            <div class="col-sm-7">
+              @if($user->canViewUsers())
+                <span class="badge badge-primary margin-half margin-left-0">
+                  {{ trans('permsandroles.permissionView') }}
+                </span>
+              @endif
+
+              @if($user->canCreateUsers())
+                <span class="badge badge-info margin-half margin-left-0">
+                  {{ trans('permsandroles.permissionCreate') }}
+                </span>
+              @endif
+
+              @if($user->canEditUsers())
+                <span class="badge badge-warning margin-half margin-left-0">
+                  {{ trans('permsandroles.permissionEdit') }}
+                </span>
+              @endif
+
+              @if($user->canDeleteUsers())
+                <span class="badge badge-danger margin-half margin-left-0">
+                  {{ trans('permsandroles.permissionDelete') }}
+                </span>
+              @endif
+            </div>
+            --}}
+            <div class="clearfix"></div>
+            <div class="border-bottom"></div> 
+
+
+            @if ($user->created_at)
+              
+              <div class="col-sm-5 col-6 text-larger">
+                <strong>
+                  {{ trans('Created At :') }}
+                </strong>
+              </div>
+
+              <div class="col-sm-7">
+                {{ $user->created_at }}
+              </div>
+
+              <div class="clearfix"></div>
+              <div class="border-bottom"></div>
+
+            @endif
+
+            @if ($user->updated_at)
+
+              <div class="col-sm-5 col-6 text-larger">
+                <strong>
+                  {{ trans('Updated At :') }}
+                </strong>
+              </div>
+
+              <div class="col-sm-7">
+                {{ $user->updated_at }}
+              </div>
+
+              
+
+            @endif    
+                        
                     </div>
                 </div>
             </div>

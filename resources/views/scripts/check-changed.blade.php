@@ -1,4 +1,16 @@
 <script type="text/javascript">
+  
+  // $(".other_info").click( function( event ) {
+    
+  //   var $other_info = $(".change-continer2" ) ;
+   
+  //   if($(".change-continer2" ).css( "display") == 'block'){
+  //       $other_info.hide();
+  //   }else{
+  //       $other_info.show();
+  //   }
+  
+  // });
   $('.btn-change-pw').click(function(event) {
     var pwInput = $('#password');
     var pwInputConf = $('#password_confirmation');
@@ -16,9 +28,18 @@
   $("input").keyup(function() {
     checkChanged();
   });
+  $('input[type="file"]').change(function() {
+    checkChanged();
+  });
+  
   $("select").change(function() {
     checkChanged();
   });
+  
+  $("textarea").keyup(function() {
+    checkChanged();
+  });
+
   function checkChanged() {
     var saveBtn = $(".btn-save");
     if(!$('input').val()){
@@ -27,5 +48,6 @@
     else {
       saveBtn.show();
     }
+    
   }
 </script>

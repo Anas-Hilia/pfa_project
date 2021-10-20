@@ -141,8 +141,8 @@ php artisan vendor:publish --tag=laravel2step
 
 ### Seeds
 ##### Seeded Roles
-  * Unverified - Level 0
-  * User  - Level 1
+  * Student - Level 0
+  * Professor  - Level 1
   * Administrator - Level 5
 
 ##### Seeded Permissions

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+
 class RolesTableSeeder extends Seeder
 {
     /**
@@ -20,20 +21,20 @@ class RolesTableSeeder extends Seeder
         $RoleItems = [
             [
                 'name'        => 'Admin',
-                'slug'        => 'admin',
+                'slug'        => 'Admin',
                 'description' => 'Admin Role',
                 'level'       => 5,
             ],
             [
-                'name'        => 'User',
-                'slug'        => 'user',
-                'description' => 'User Role',
+                'name'        => 'Professor',
+                'slug'        => 'Professor',
+                'description' => 'Professor Role',
                 'level'       => 1,
             ],
             [
-                'name'        => 'Unverified',
-                'slug'        => 'unverified',
-                'description' => 'Unverified Role',
+                'name'        => 'Student',
+                'slug'        => 'Student',
+                'description' => 'Student Role',
                 'level'       => 0,
             ],
         ];
@@ -42,16 +43,19 @@ class RolesTableSeeder extends Seeder
          * Add Role Items
          *
          */
+        $i=0;
         foreach ($RoleItems as $RoleItem) {
-            $newRoleItem = config('roles.models.role')::where('slug', '=', $RoleItem['slug'])->first();
-            if ($newRoleItem === null) {
-                $newRoleItem = config('roles.models.role')::create([
-                    'name'          => $RoleItem['name'],
-                    'slug'          => $RoleItem['slug'],
-                    'description'   => $RoleItem['description'],
-                    'level'         => $RoleItem['level'],
-                ]);
-            }
+            $i+=1;
+            $newRoleItem = config('roles.models.role')::where('id', '=', $i )->first();
+
+            $newRoleItem->update([
+                'name'          => $RoleItem['name'],
+                'slug'          => $RoleItem['slug'],
+                'description'   => $RoleItem['description'],
+                'level'         => $RoleItem['level'],
+            ]);           
         }
     }
+
+   
 }

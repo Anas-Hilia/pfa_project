@@ -1,3 +1,4 @@
+{{-- @dd(Route::currentRouteName()) --}}
 <script>
     $(function() {
         var cardTitle = $('#card_title');
@@ -32,7 +33,7 @@
                                 '<td></td>' +
                                 '<td></td>' +
                                 '</tr>';
-
+                                
             $.ajax({
                 type:'POST',
                 url: "{{ route('search-users') }}",
@@ -41,10 +42,11 @@
                     let jsonData = JSON.parse(result);
                     if (jsonData.length != 0) {
                         $.each(jsonData, function(index, val) {
+                            let emailHTML = '<a href="mailto:'+ val.email + '" title="email '+ val.email +'">'+ val.email +'</a>';
                             let rolesHtml = '';
                             let roleClass = '';
-                            let showCellHtml = '<a class="btn btn-sm btn-success btn-block" href="users/' + val.id + '" data-toggle="tooltip" title="{{ trans("usersmanagement.tooltips.show") }}">{!! trans("usersmanagement.buttons.show") !!}</a>';
-                            let editCellHtml = '<a class="btn btn-sm btn-info btn-block" href="users/' + val.id + '/edit" data-toggle="tooltip" title="{{ trans("usersmanagement.tooltips.edit") }}">{!! trans("usersmanagement.buttons.edit") !!}</a>';
+                            let showCellHtml = '<a class="btn btn-sm btn-success btn-block" href="/users/' + val.id + '" data-toggle="tooltip" title="{{ trans("usersmanagement.tooltips.show") }}">{!! trans("usersmanagement.buttons.show") !!}</a>';
+                            let editCellHtml = '<a class="btn btn-sm btn-info btn-block" href="/users/' + val.id + '/edit" data-toggle="tooltip" title="{{ trans("usersmanagement.tooltips.edit") }}">{!! trans("usersmanagement.buttons.edit") !!}</a>';
                             let deleteCellHtml = '<form method="POST" action="/users/'+ val.id +'" accept-charset="UTF-8" data-toggle="tooltip" title="Delete">' +
                                     '{!! Form::hidden("_method", "DELETE") !!}' +
                                     '{!! csrf_field() !!}' +
@@ -54,29 +56,68 @@
                                 '</form>';
 
                             $.each(val.roles, function(roleIndex, role) {
-                                if (role.name == "User") {
+                                if (role.name == "Student") {
+                                    roleClass = 'success';
+                                } else if (role.name == "Professor") {
                                     roleClass = 'primary';
-                                } else if (role.name == "Admin") {
-                                    roleClass = 'warning';
-                                } else if (role.name == "Unverified") {
-                                    roleClass = 'danger';
                                 } else {
                                     roleClass = 'default';
                                 };
-                                rolesHtml = '<span class="label label-' + roleClass + '">' + role.name + '</span> ';
+                                rolesHtml = '<span class="badge badge-' + roleClass + '">' + role.name + '</span> ';
+                                @if (Route::currentRouteName()=='students' || 
+                                                 Route::currentRouteName()=='students_of_prof_formation' ||
+                                                 Route::currentRouteName()=='students_validate' ||
+                                                 Route::currentRouteName()=='students_of_prof_completed' ||
+                                                 Route::currentRouteName()=='students_of_prof_uncompleted')
+                                                        
+                                        if(val.validate==0){
+                                            status='Unactivated';
+                                            badgeClass='warning';
+                                        }else{
+                                            status='Activated';
+                                            badgeClass='success';
+                                        }
+                                        statusHTML ='<span class="badge badge-'+ badgeClass +'">' + status + '</span>';
+                                        
+                                        // if(val.status_tr1==0){
+                                        //     status='Uncompleted';
+                                        //     badgeClass='warning';
+                                        // }else{
+                                        //     status='Completed';
+                                        //     badgeClass='success';
+                                        // }
+                                        // tr1HTML ='<span class="badge badge-'+ badgeClass +'">' + status + '</span>';
+                                        
+                                        // if(val.status_tr2==0){
+                                        //     status='Uncompleted';
+                                        //     badgeClass='warning';
+                                        // }else{
+                                        //     status='Completed';
+                                        //     badgeClass='success';
+                                        // }
+                                        // tr2HTML ='<span class="badge badge-'+ badgeClass +'">' + status + '</span>';
+                                @endif
                             });
                             resultsContainer.append('<tr>' +
                                 '<td>' + val.id + '</td>' +
-                                '<td>' + val.name + '</td>' +
-                                '<td class="hidden-xs">' + val.email + '</td>' +
+                                '<td>' + emailHTML + '</td>' +
                                 '<td class="hidden-xs">' + val.first_name + '</td>' +
                                 '<td class="hidden-xs">' + val.last_name + '</td>' +
-                                '<td class="hidden-sm hidden-xs"> ' + rolesHtml  +'</td>' +
-                                '<td class="hidden-sm hidden-xs hidden-md">' + val.created_at + '</td>' +
-                                '<td class="hidden-sm hidden-xs hidden-md">' + val.updated_at + '</td>' +
-                                '<td>' + deleteCellHtml + '</td>' +
+                                '<td> ' + rolesHtml  +'</td>' +
+                                @if (Route::currentRouteName()=='students' || 
+                                                 Route::currentRouteName()=='students_of_prof_formation' ||
+                                                 Route::currentRouteName()=='students_validate' ||
+                                                 Route::currentRouteName()=='students_of_prof_completed' ||
+                                                 Route::currentRouteName()=='students_of_prof_uncompleted')
+                                                 '<td>' + statusHTML + '</td>' +
+                                                //  '<td>' + tr1HTML + '</td>' +
+                                                //  '<td>' + tr2HTML + '</td>' +
+                                @endif
                                 '<td>' + showCellHtml + '</td>' +
+                                @if(Auth::User()->currentUserRole==1)
                                 '<td>' + editCellHtml + '</td>' +
+                                '<td>' + deleteCellHtml + '</td>' +
+                                @endif
                             '</tr>');
                         });
                     } else {
@@ -107,7 +148,23 @@
                 clearSearchTrigger.hide();
                 resultsContainer.html('');
                 usersTable.show();
-                cardTitle.html("{!! trans('usersmanagement.showing-all-users') !!}");
+                cardTitle.html(
+                    @if (Route::currentRouteName()=='students')
+                        "{!! trans('Showing all students') !!}"
+                    @elseif(Route::currentRouteName()=='students_of_prof_formation')
+                        "{!! trans('Showing Activated students') !!}"
+                    @elseif(Route::currentRouteName()=='students_validate')
+                        "{!! trans('Showing Unactivated students') !!}"
+                    @elseif(Route::currentRouteName()=='students_of_prof_completed')
+                        "{!! trans('Showing Students with Complete paymnet :') !!}"
+                    @elseif(Route::currentRouteName()=='students_of_prof_uncompleted')
+                        "{!! trans('Showing Students with incomplete paymnet :') !!}"
+                    @elseif(Route::currentRouteName()=='profs')
+                        "{!! trans('Showing all professors') !!}"
+                    @else
+                        "{!! trans('usersmanagement.showing-all-users') !!}"
+                    @endif
+                    );
                 userPagination.show();
                 usersCount.html(" ");
             };

@@ -36,6 +36,8 @@ class User extends Authenticatable
     protected $guarded = [
         'id',
     ];
+    protected $primaryKey  = 'id';
+
 
     /**
      * The attributes that are hidden.
@@ -69,16 +71,13 @@ class User extends Authenticatable
         'name',
         'first_name',
         'last_name',
+        'tel',
+        'establishment_prof',
         'email',
         'password',
         'activated',
         'token',
-        'signup_ip_address',
-        'signup_confirmation_ip_address',
-        'signup_sm_ip_address',
-        'admin_ip_address',
-        'updated_ip_address',
-        'deleted_ip_address',
+        
     ];
 
     /**
@@ -91,15 +90,12 @@ class User extends Authenticatable
         'first_name'                        => 'string',
         'last_name'                         => 'string',
         'email'                             => 'string',
+        'tel'                               => 'string',
+        'establishment_prof'                => 'string',
         'password'                          => 'string',
         'activated'                         => 'boolean',
         'token'                             => 'string',
-        'signup_ip_address'                 => 'string',
-        'signup_confirmation_ip_address'    => 'string',
-        'signup_sm_ip_address'              => 'string',
-        'admin_ip_address'                  => 'string',
-        'updated_ip_address'                => 'string',
-        'deleted_ip_address'                => 'string',
+        
     ];
 
     /**
@@ -162,5 +158,65 @@ class User extends Authenticatable
     public function removeProfile(Profile $profile)
     {
         return $this->profiles()->detach($profile);
+    }
+
+
+
+
+    //------------------
+
+
+    /**
+     * Get the student associated with the user.
+     */
+    public function student()
+    {
+        return $this->hasOne(\App\Models\Student::class);
+    }
+
+    /**
+     * The students that belong to the user.
+     */
+    public function students()
+    {
+        return $this->belongsToMany(\App\Models\Student::class)->withTimestamps();
+    }
+
+    /**
+     * Check if a user has a profile.
+     *
+     * @param  string  $name
+     *
+     * @return bool
+     */
+    public function hasStudent($name)
+    {
+        foreach ($this->students as $student) {
+            if ($student->name === $name) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Add/Attach a student to a user.
+     *
+     * @param  Profile $student
+     */
+    public function assignStudent(Student $student)
+    {
+        return $this->students()->attach($student);
+    }
+
+    /**
+     * Remove/Detach a student to a user.
+     *
+     * @param  Profile $student
+     */
+    public function removeStudent(Student $student)
+    {
+        return $this->students()->detach($student);
     }
 }

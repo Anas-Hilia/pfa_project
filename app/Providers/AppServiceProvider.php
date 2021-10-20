@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use ConsoleTVs\Charts\Registrar as Charts;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
         //Paginator::useBootstrapThree();
         Paginator::useBootstrap();
         Schema::defaultStringLength(191);
+
+        
     }
 
     /**

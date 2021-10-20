@@ -39,26 +39,26 @@ class ProfilesController extends Controller
      * Fetch user
      * (You can extract this to repository method).
      *
-     * @param $username
+     * @param $id
      *
      * @return mixed
      */
-    public function getUserByUsername($username)
+    public function getUserByUsername($id)
     {
-        return User::with('profile')->wherename($username)->firstOrFail();
+        return User::with('profile')->where( 'id' ,'=', $id )->firstOrFail();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param string $username
+     * @param string $id
      *
      * @return Response
      */
-    public function show($username)
+    public function show($id)
     {
         try {
-            $user = $this->getUserByUsername($username);
+            $user = $this->getUserByUsername($id);
         } catch (ModelNotFoundException $exception) {
             abort(404);
         }
@@ -74,16 +74,16 @@ class ProfilesController extends Controller
     }
 
     /**
-     * /profiles/username/edit.
+     * /profiles/id/edit.
      *
-     * @param $username
+     * @param $id
      *
      * @return mixed
      */
-    public function edit($username)
+    public function edit($id)
     {
         try {
-            $user = $this->getUserByUsername($username);
+            $user = $this->getUserByUsername($id);
         } catch (ModelNotFoundException $exception) {
             return view('pages.status')
                 ->with('error', trans('profile.notYourProfile'))
@@ -110,17 +110,17 @@ class ProfilesController extends Controller
      * Update a user's profile.
      *
      * @param \App\Http\Requests\UpdateUserProfile $request
-     * @param $username
+     * @param $id
      *
      * @throws Laracasts\Validation\FormValidationException
      *
      * @return mixed
      */
-    public function update(UpdateUserProfile $request, $username)
+    public function update(UpdateUserProfile $request, $id)
     {
-        $user = $this->getUserByUsername($username);
+        $user = $this->getUserByUsername($id);
 
-        $input = $request->only('theme_id', 'location', 'bio', 'twitter_username', 'github_username', 'avatar_status');
+        $input = $request->only('theme_id', 'location', 'bio', 'twitter_id', 'github_id', 'avatar_status');
 
         $ipAddress = new CaptureIpTrait();
 
@@ -132,7 +132,6 @@ class ProfilesController extends Controller
             $user->profile->fill($input)->save();
         }
 
-        $user->updated_ip_address = $ipAddress->getClientIp();
         $user->save();
 
         return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));
@@ -155,11 +154,11 @@ class ProfilesController extends Controller
         $rules = [];
 
         if ($user->name !== $request->input('name')) {
-            $usernameRules = [
+            $idRules = [
                 'name' => 'required|max:255|unique:users',
             ];
         } else {
-            $usernameRules = [
+            $idRules = [
                 'name' => 'required|max:255',
             ];
         }
@@ -177,7 +176,7 @@ class ProfilesController extends Controller
             'last_name'  => 'nullable|string|max:255',
         ];
 
-        $rules = array_merge($usernameRules, $emailRules, $additionalRules);
+        $rules = array_merge($idRules, $emailRules, $additionalRules);
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
@@ -313,7 +312,7 @@ class ProfilesController extends Controller
         $request->session()->flush();
         $request->session()->regenerate();
 
-        return redirect('/login/')->with('success', trans('profile.successUserAccountDeleted'));
+        return redirect('/login')->with('success', trans('profile.successUserAccountDeleted'));
     }
 
     /**

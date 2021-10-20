@@ -1,64 +1,172 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+
+
+<nav class="navbar navbar-expand-xl navbar-light navbar-laravel">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {!! config('app.name', trans('titles.app')) !!}
+        <a class="navbar-brand" href="{{ url('/home') }}" class="navbar-brand">
+            {{-- <strong>{{trans('Gestion Formations')}}</strong> --}}
+            <img src="{{asset("custom_symlink/home_icons/cufcc.png")}}" width="100" height="70" class="d-inline-block align-top" alt="">
+
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-            <span class="sr-only">{!! trans('titles.toggleNav') !!}</span>
+            <span class="sr-only">{!! trans('Gestion Fomations') !!}</span>
         </button>
+        
+        @if(Auth::user())
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{-- Left Side Of Navbar --}}
             <ul class="navbar-nav mr-auto">
-                @role('admin')
+                {{-- @role('admin') --}}
+                @if(Auth::User()->currentUserRole!=3)
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {!! trans('User Management') !!}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @if(Auth::User()->currentUserRole==1)
+                            <a class="dropdown-item {{ Request::is('users/create') ? 'active' : null }}" href="{{ route('users.create') }}">
+                                {!! trans('Create New User') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/students/ImportExport') }}">
+                                {!! trans('Import and Export Students') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/users') }}">
+                                {!! trans('Show All Users') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/profs') }}">
+                                {!! trans('Show All Profs') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/students') }}">
+                                {!! trans('Show All Students') !!}
+                            </a>
+                            
+
+                        @else
+                            <a class="dropdown-item " href="/prof/{{Auth::User()->id}}/students" >
+                                {{trans('Show Your Activated Students')}}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="/prof/{{Auth::User()->id}}/validate.students" >
+                                {{trans('Show Your Unactivated Students')}}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="/prof/{{Auth::User()->id}}/completed.students" >
+                                {{trans('Students with Complete paymnet')}}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="/prof/{{Auth::User()->id}}/uncompleted.students" >
+                                {{trans('Students with Uncomplete paymnet')}}
+                            </a>
+                        @endif
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('/statistics/home') }}" >
+                            {!! trans('Show Statistics') !!}
+                        </a>
+                    </div>
+                </li>
+                
+                @endif
+                
+                                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {!! trans('Formation Management') !!}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @if(Auth::User()->currentUserRole!=3)
+                            <a class="dropdown-item {{ Request::is('formations/create') ? 'active' : null }}" href="{{ route('formations.create') }}">
+                                {!! trans('Create New Formation') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                        @endif
+                        <a class="dropdown-item" href="{{ url('/formations') }}">
+                            {!! trans('Show All Formations') !!}
+                        </a>
+                        @if(Auth::User()->currentUserRole==2)
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/prof/{{Auth::User()->id}}/formations">
+                                {{trans('Show Your Formations')}}
+                            </a>
+                        @endif
+                        
+                        
+                    </div>
+                </li>
+                @if(Auth::User()->currentUserRole!=3)
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {!! trans('titles.adminDropdownNav') !!}
+                            {!! trans('Branche Management') !!}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ (Request::is('roles') || Request::is('permissions')) ? 'active' : null }}" href="{{ route('laravelroles::roles.index') }}">
-                                {!! trans('titles.laravelroles') !!}
+                            
+                            <a class="dropdown-item {{ Request::is('BranchesFs/create') ? 'active' : null }}" href="{{ route('BranchesFs.create') }}">
+                                {!! trans('Create New Branche') !!}
                             </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'active' : null }}" href="{{ url('/users') }}">
-                                {!! trans('titles.adminUserList') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('users/create') ? 'active' : null }}" href="{{ url('/users/create') }}">
-                                {!! trans('titles.adminNewUser') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('themes','themes/create') ? 'active' : null }}" href="{{ url('/themes') }}">
-                                {!! trans('titles.adminThemesList') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('logs') ? 'active' : null }}" href="{{ url('/logs') }}">
-                                {!! trans('titles.adminLogs') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('activity') ? 'active' : null }}" href="{{ url('/activity') }}">
-                                {!! trans('titles.adminActivity') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('phpinfo') ? 'active' : null }}" href="{{ url('/phpinfo') }}">
-                                {!! trans('titles.adminPHP') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('routes') ? 'active' : null }}" href="{{ url('/routes') }}">
-                                {!! trans('titles.adminRoutes') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('active-users') ? 'active' : null }}" href="{{ url('/active-users') }}">
-                                {!! trans('titles.activeUsers') !!}
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item {{ Request::is('blocker') ? 'active' : null }}" href="{{ route('laravelblocker::blocker.index') }}">
-                                {!! trans('titles.laravelBlocker') !!}
-                            </a>
+                            
+                            
+                            
                         </div>
                     </li>
-                @endrole
+                @endif
+                
+                {{-- Recently Add & Recently Deleted  --}}
+                @if(Auth::User()->currentUserRole==1)
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {!! trans('Recently A/U') !!}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            
+                            <a class="dropdown-item " href="{{ url('/formations/created') }}">
+                                {!! trans('Formations Created') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/formations/updated') }}">
+                                {!! trans('Formations Updated') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/branches/created') }}">
+                                {!! trans('Branches Created') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/branches/created') }}">
+                                {!! trans('Branches Updated') !!}
+                            </a>
+                                
+                        </div>
+                    </li>
+                @endif
+                @if(Auth::User()->currentUserRole==1)
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {!! trans('Recently Deleted') !!}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            
+                            <a class="dropdown-item " href="{{ url('/users/deleted') }}">
+                                {!! trans('Users (profs/students)') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/formations/deleted') }}">
+                                {!! trans('Formations') !!}
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item " href="{{ url('/BranchesFs/deleted') }}">
+                                {!! trans('Branches') !!}
+                            </a>
+                            
+                                
+                        </div>
+                    </li>
+                @endif
+
+
             </ul>
+            
             {{-- Right Side Of Navbar --}}
             <ul class="navbar-nav ml-auto">
                 {{-- Authentication Links --}}
@@ -70,15 +178,27 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            @if ((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1)
-                                <img src="{{ Auth::user()->profile->avatar }}" alt="{{ Auth::user()->name }}" class="user-avatar-nav">
-                            @else
-                                <div class="user-avatar-nav"></div>
-                            @endif
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                                                        
+                            @php
+                                $avatarUser="admin";
+                                if(Auth::User()->currentUserRole){
+                                    if(Auth::User()->currentUserRole==2){
+                                        $avatarUser="prof";
+        
+                                    }else if(Auth::User()->currentUserRole==3){
+                                        $avatarUser="student";
+                                    
+                                    }
+                                
+                                }
+                            @endphp
+
+                            <img src="{{ asset('custom_symlink/home_icons/'.$avatarUser.'_icon.png') }}" alt="{{ Auth::user()->last_name }}" class="user-avatar-nav">
+
+                            {{ Auth::user()->last_name }} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'active' : null }}" href="{{ url('/profile/'.Auth::user()->name) }}">
+                            <a class="dropdown-item {{ Request::is('users/'.Auth::user()->id, 'users/'.Auth::user()->id . '/edit') ? 'active' : null }}" href="{{ url('/users/'.Auth::user()->id) }}">
                                 {!! trans('titles.profile') !!}
                             </a>
                             <div class="dropdown-divider"></div>
@@ -95,5 +215,8 @@
                 @endguest
             </ul>
         </div>
+
+        @endif
+    
     </div>
 </nav>

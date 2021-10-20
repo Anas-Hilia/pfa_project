@@ -8,8 +8,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 offset-md-1">
-				<div class="card card-default">
-					<div class="card-header">{{ trans('titles.activation') }}</div>
+				<div class="card card-default ">
+					<div class="card-header bg-warning ">{{ trans('titles.activation') }}</div>
 					<div class="card-body">
 						<p>{{ trans('auth.regThanks') }}</p>
 						<p>{{ trans('auth.anEmailWasSent',['email' => $email, 'date' => $date ] ) }}</p>

@@ -32,12 +32,12 @@
                     <div class="card-header bg-danger text-white">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span id="card_title">
-                                {!!trans('usersmanagement.show-deleted-users')!!}
+                                {!!trans('Show deleted Users')!!}
                             </span>
                             <div class="float-right">
                                 <a href="{{ route('users') }}" class="btn btn-light btn-sm float-right" data-toggle="tooltip" data-placement="left" title="{{ trans('usersmanagement.tooltips.back-users') }}">
                                     <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>
-                                    {!! trans('usersmanagement.buttons.back-to-users') !!}
+                                    {!! trans('back to users') !!}
                                 </a>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
 
                             <tr>
                                 <p class="text-center margin-half">
-                                    {!! trans('usersmanagement.no-records') !!}
+                                    {!! trans('no-records') !!}
                                 </p>
                             </tr>
 
@@ -62,14 +62,12 @@
                                     </caption>
                                     <thead>
                                         <tr>
-                                            <th class="hidden-xxs">ID</th>
-                                            <th>{!!trans('usersmanagement.users-table.name')!!}</th>
-                                            <th class="hidden-xs hidden-sm">Email</th>
+                                            <th class="hidden-xxs">{{trans('ID')}}</th>
+                                            <th class="hidden-xs hidden-sm">{{trans('Email')}}</th>
                                             <th class="hidden-xs hidden-sm hidden-md">{!!trans('usersmanagement.users-table.fname')!!}</th>
                                             <th class="hidden-xs hidden-sm hidden-md">{!!trans('usersmanagement.users-table.lname')!!}</th>
                                             <th class="hidden-xs hidden-sm">{!!trans('usersmanagement.users-table.role')!!}</th>
                                             <th class="hidden-xs">{!!trans('usersmanagement.labelDeletedAt')!!}</th>
-                                            <th class="hidden-xs">{!!trans('usersmanagement.labelIpDeleted')!!}</th>
                                             <th>{!!trans('usersmanagement.users-table.actions')!!}</th>
                                             <th></th>
                                             <th></th>
@@ -80,33 +78,24 @@
                                         @foreach($users as $user)
                                             <tr>
                                                 <td class="hidden-xxs">{{$user->id}}</td>
-                                                <td>{{$user->name}}</td>
                                                 <td class="hidden-xs hidden-sm"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
                                                 <td class="hidden-xs hidden-sm hidden-md">{{$user->first_name}}</td>
                                                 <td class="hidden-xs hidden-sm hidden-md">{{$user->last_name}}</td>
                                                 <td class="hidden-xs hidden-sm">
                                                     @foreach ($user->roles as $user_role)
-
-                                                        @if ($user_role->name == 'User')
-                                                            @php $labelClass = 'primary' @endphp
-
-                                                        @elseif ($user_role->name == 'Admin')
-                                                            @php $labelClass = 'warning' @endphp
-
-                                                        @elseif ($user_role->name == 'Unverified')
-                                                            @php $labelClass = 'danger' @endphp
-
-                                                        @else
-                                                            @php $labelClass = 'default' @endphp
-
-                                                        @endif
-
-                                                        <span class="label label-{{$labelClass}}">{{ $user_role->name }}</span>
-
-                                                    @endforeach
+                                                    @if ($user_role->name == 'Professor')
+                                                        @php $badgeClass = 'primary' @endphp
+                                                    @elseif ($user_role->name == 'Admin')
+                                                        @php $badgeClass = 'warning' @endphp
+                                                    @elseif ($user_role->name == 'Student')
+                                                        @php $badgeClass = 'success' @endphp
+                                                    @else
+                                                        @php $badgeClass = 'default' @endphp
+                                                    @endif
+                                                    <span class="badge badge-{{$badgeClass}}">{{ trans($user_role->name) }}</span>
+                                                @endforeach
                                                 </td>
                                                 <td class="hidden-xs">{{$user->deleted_at}}</td>
-                                                <td class="hidden-xs">{{$user->deleted_ip_address}}</td>
                                                 <td>
                                                     {!! Form::model($user, array('action' => array('SoftDeletesController@update', $user->id), 'method' => 'PUT', 'data-toggle' => 'tooltip')) !!}
                                                         {!! Form::button('<i class="fa fa-refresh" aria-hidden="true"></i>', array('class' => 'btn btn-success btn-block btn-sm', 'type' => 'submit', 'data-toggle' => 'tooltip', 'title' => 'Restore User')) !!}

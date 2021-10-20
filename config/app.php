@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'CUFCC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\ComposerServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -176,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         \SocialiteProviders\Manager\ServiceProvider::class,
+        //permissions & roles
+        // Spatie\Permission\PermissionServiceProvider::class,
     ],
 
     /*
@@ -232,6 +235,8 @@ return [
         'Gravatar'      => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'         => Intervention\Image\Facades\Image::class,
         'Uuid'          => jeremykenedy\Uuid\Uuid::class,
+        'Excel'         => Maatwebsite\Excel\Facades\Excel::class,
+
     ],
 
 ];

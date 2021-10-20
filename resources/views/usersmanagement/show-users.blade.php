@@ -1,9 +1,24 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {!! trans('usersmanagement.showing-all-users') !!}
+    
+    @if (Route::currentRouteName()=='students' )
+        {!! trans('showing all students') !!}
+    @elseif(Route::currentRouteName()=='students_of_prof_formation' )
+        {!! trans('Activated Students') !!}
+    @elseif(Route::currentRouteName()=='students_of_prof_completed')
+        {!! trans('Students with Complete paymnet') !!}
+    @elseif(Route::currentRouteName()=='students_of_prof_uncompleted')
+        {!! trans('Students with Uncomplete paymnet') !!}
+    @elseif(Route::currentRouteName()=='students_validate')
+        {!! trans('Unactivated Students') !!}
+    @elseif(Route::currentRouteName()=='profs')
+        {!! trans('showing all professors') !!}
+    @else
+        {!! trans('showing all users') !!}
+    @endif
+    
 @endsection
-
 @section('template_linked_css')
     @if(config('usersmanagement.enabledDatatablesJs'))
         <link rel="stylesheet" type="text/css" href="{{ config('usersmanagement.datatablesCssCDN') }}">
@@ -35,111 +50,234 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {!! trans('usersmanagement.showing-all-users') !!}
+
+                                @if (Route::currentRouteName()=='students')
+                                    {!! trans('Showing all students') !!}
+                                @elseif(Route::currentRouteName()=='students_of_prof_formation')
+                                    {!! trans('Showing Activated students') !!}
+                                @elseif(Route::currentRouteName()=='students_validate')
+                                    {!! trans('Showing Unactivated students') !!}
+                                @elseif(Route::currentRouteName()=='students_of_prof_completed')
+                                    {!! trans('Showing Students with Complete paymnet :') !!}
+                                @elseif(Route::currentRouteName()=='students_of_prof_uncompleted')
+                                    {!! trans('Showing Students with incomplete paymnet :') !!}
+                                @elseif(Route::currentRouteName()=='profs')
+                                    {!! trans('Showing all professors') !!}
+                                @else
+                                    {!! trans('usersmanagement.showing-all-users') !!}
+                                @endif
+                                
                             </span>
 
                             <div class="btn-group pull-right btn-group-xs">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
-                                    <span class="sr-only">
-                                        {!! trans('usersmanagement.users-menu-alt') !!}
-                                    </span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="/users/create">
-                                        <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                                        {!! trans('usersmanagement.buttons.create-new') !!}
-                                    </a>
-                                    <a class="dropdown-item" href="/users/deleted">
-                                        <i class="fa fa-fw fa-group" aria-hidden="true"></i>
-                                        {!! trans('usersmanagement.show-deleted-users') !!}
-                                    </a>
-                                </div>
+                                @if(Auth::user()->currentUserRole==1)
+
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
+                                        <span class="sr-only">
+                                            {!! trans('usersmanagement.users-menu-alt') !!}
+                                        </span>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="/users/create">
+                                            <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
+                                            {!! trans('usersmanagement.buttons.create-new') !!}
+                                        </a>
+                                        <a class="dropdown-item" href="/users/deleted">
+                                            <i class="fa fa-fw fa-group" aria-hidden="true"></i>
+                                            {!! trans('usersmanagement.show-deleted-users') !!}
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
 
                     <div class="card-body">
+                        @if(count($users) === 0)
 
-                        @if(config('usersmanagement.enableSearchUsers'))
-                            @include('partials.search-users-form')
-                        @endif
+                            <tr>
+                                <p class="text-center margin-half">
+                                    {!! trans('no-records') !!}
+                                </p>
+                            </tr>
 
-                        <div class="table-responsive users-table">
-                            <table class="table table-striped table-sm data-table">
-                                <caption id="user_count">
-                                    {{ trans_choice('usersmanagement.users-table.caption', 1, ['userscount' => $users->count()]) }}
-                                </caption>
-                                <thead class="thead">
-                                    <tr>
-                                        <th>{!! trans('usersmanagement.users-table.id') !!}</th>
-                                        <th>{!! trans('usersmanagement.users-table.name') !!}</th>
-                                        <th class="hidden-xs">{!! trans('usersmanagement.users-table.email') !!}</th>
-                                        <th class="hidden-xs">{!! trans('usersmanagement.users-table.fname') !!}</th>
-                                        <th class="hidden-xs">{!! trans('usersmanagement.users-table.lname') !!}</th>
-                                        <th>{!! trans('usersmanagement.users-table.role') !!}</th>
-                                        <th class="hidden-sm hidden-xs hidden-md">{!! trans('usersmanagement.users-table.created') !!}</th>
-                                        <th class="hidden-sm hidden-xs hidden-md">{!! trans('usersmanagement.users-table.updated') !!}</th>
-                                        <th>{!! trans('usersmanagement.users-table.actions') !!}</th>
-                                        <th class="no-search no-sort"></th>
-                                        <th class="no-search no-sort"></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="users_table">
-                                    @foreach($users as $user)
-                                        <tr>
-                                            <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td class="hidden-xs"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
-                                            <td class="hidden-xs">{{$user->first_name}}</td>
-                                            <td class="hidden-xs">{{$user->last_name}}</td>
-                                            <td>
-                                                @foreach ($user->roles as $user_role)
-                                                    @if ($user_role->name == 'User')
-                                                        @php $badgeClass = 'primary' @endphp
-                                                    @elseif ($user_role->name == 'Admin')
-                                                        @php $badgeClass = 'warning' @endphp
-                                                    @elseif ($user_role->name == 'Unverified')
-                                                        @php $badgeClass = 'danger' @endphp
-                                                    @else
-                                                        @php $badgeClass = 'default' @endphp
-                                                    @endif
-                                                    <span class="badge badge-{{$badgeClass}}">{{ $user_role->name }}</span>
-                                                @endforeach
-                                            </td>
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->created_at}}</td>
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->updated_at}}</td>
-                                            <td>
-                                                {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
-                                                    {!! Form::hidden('_method', 'DELETE') !!}
-                                                    {!! Form::button(trans('usersmanagement.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' => 'Are you sure you want to delete this user ?')) !!}
-                                                {!! Form::close() !!}
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="Show">
-                                                    {!! trans('usersmanagement.buttons.show') !!}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="Edit">
-                                                    {!! trans('usersmanagement.buttons.edit') !!}
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                                <tbody id="search_results"></tbody>
-                                @if(config('usersmanagement.enableSearchUsers'))
-                                    <tbody id="search_results"></tbody>
-                                @endif
-
-                            </table>
-
-                            @if(config('usersmanagement.enablePagination'))
-                                {{ $users->links() }}
+                        @else
+                        
+                            @if(config('usersmanagement.enableSearchUsers'))
+                                @include('partials.search-users-form')
                             @endif
 
-                        </div>
+                            <div class="table-responsive users-table">
+                                <table class="table table-striped table-sm data-table">
+                                    <caption id="user_count">
+                                    @php
+                                        if (Route::currentRouteName()=='students' || 
+                                            Route::currentRouteName()=='students_of_prof_formation' ||
+                                            Route::currentRouteName()=='students_validate'||
+                                            Route::currentRouteName()=='students_of_prof_uncompleted' ||
+                                            Route::currentRouteName()=='students_of_prof_completed')
+
+                                            $UserType="student";
+                                        else if(Route::currentRouteName()=='profs')
+                                            $UserType="professor";
+                                        else
+                                            $UserType="user";
+                                            
+                                    @endphp
+
+                                        @if($users->count()==1)
+                                            {{trans($users->count().' '.$UserType.' total')}}
+                                        @else
+                                            {{trans($users->count().' '.$UserType.'s total')}}
+                                        @endif
+                                        
+                                    </caption>
+                                    <thead class="thead">
+                                        <tr>
+                                            <th>{!! trans('Id') !!}</th>
+                                            <th >{!! trans('Email') !!}</th>
+                                            <th class="hidden-xs">{!! trans('Fist Name') !!}</th>
+                                            <th class="hidden-xs">{!! trans('Last Name') !!}</th>
+                                            <th>{!! trans('Role') !!}</th>
+                                            @if (Route::currentRouteName()=='students' || 
+                                                 Route::currentRouteName()=='students_of_prof_formation' ||
+                                                 Route::currentRouteName()=='students_validate' ||
+                                                 Route::currentRouteName()=='students_of_prof_completed' ||
+                                                 Route::currentRouteName()=='students_of_prof_uncompleted')
+                                                
+                                                <th>{!! trans('Status') !!}</th>
+                                                {{-- <th class="hidden-xs">{!! trans('tranche 1') !!}</th>
+                                                <th class="hidden-xs">{!! trans('tranche 2') !!}</th> --}}
+
+                                            @endif
+                                            
+                                            <th>{!! trans('Actions') !!}</th>
+                                            <th class="no-search no-sort"></th>
+                                            <th class="no-search no-sort"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="users_table">
+                                        @foreach($users as $user)
+                                            <tr>
+                                                <td>{{$user->id}}</td>
+                                                <td ><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
+                                                <td class="hidden-xs">{{$user->first_name}}</td>
+                                                <td class="hidden-xs">{{$user->last_name}}</td>
+
+                                                <td>
+                                                    @foreach ($user->roles as $user_role)
+                                                        @if ($user_role->name == 'Professor')
+                                                            @php $badgeClass = 'primary' @endphp
+                                                        @elseif ($user_role->name == 'Admin')
+                                                            @php $badgeClass = 'warning' @endphp
+                                                        @elseif ($user_role->name == 'Student')
+                                                            @php $badgeClass = 'success' @endphp
+                                                        @else
+                                                            @php $badgeClass = 'default' @endphp
+                                                        @endif
+                                                        <span class="badge badge-{{$badgeClass}}">{{ trans($user_role->name) }}</span>
+                                                    @endforeach
+                                                </td>
+                                                @if (Route::currentRouteName()=='students' || 
+                                                    Route::currentRouteName()=='students_of_prof_formation' ||
+                                                    Route::currentRouteName()=='students_validate' ||
+                                                    Route::currentRouteName()=='students_of_prof_completed' ||
+                                                    Route::currentRouteName()=='students_of_prof_uncompleted')
+                                                    <td>
+                                                        @php
+                                                            if($user->validate==0){
+                                                                $status='Unactivated';
+                                                                $badgeClass='warning';
+                                                            }else{
+                                                                $status='Activated';
+                                                                $badgeClass='success';
+                                                            }
+                                                            
+                                                        @endphp
+                                                    <span class="badge badge-{{$badgeClass}}">{{ trans($status) }}</span>
+
+                                                    </td>
+                                                    {{-- <td>
+                                                        @php
+                                                            if($user->status_tr1==0){
+                                                                $status='Uncompleted';
+                                                                $badgeClass='warning';
+                                                            }else{
+                                                                $status='Completed';
+                                                                $badgeClass='success';
+                                                            }
+                                                            
+                                                        @endphp
+                                                    <span class="badge badge-{{$badgeClass}}">{{ trans($status) }}</span>
+
+                                                    </td>
+                                                    <td>
+                                                        @php
+                                                            if($user->status_tr2==0){
+                                                                $status='Uncompleted';
+                                                                $badgeClass='warning';
+                                                            }else{
+                                                                $status='Completed';
+                                                                $badgeClass='success';
+                                                            }
+                                                            
+                                                        @endphp
+                                                    <span class="badge badge-{{$badgeClass}}">{{ trans($status) }}</span>
+
+                                                    </td> --}}
+                                                @endif
+                                                
+                                                @if(Route::currentRouteName()=='students_validate')
+                                                    <td>
+                                                        <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id.'/accept') }}" data-toggle="tooltip" title="Accept">
+                                                            {!! trans('Accept') !!}
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-sm btn-danger btn-block" href="{{ URL::to('users/' . $user->id.'/refuse') }}" data-toggle="tooltip" title="Refuse">
+                                                            {!! trans('Refuse') !!}
+                                                        </a>
+                                                    </td>
+                                                @else
+                                                    <td>
+                                                        <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="Show">
+                                                            {!! trans('show') !!}
+                                                        </a>
+                                                    </td>
+
+                                                    @if(Auth::User()->currentUserRole==1)
+                                                        
+                                                        <td>
+                                                            <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="Edit">
+                                                                {!! trans('edit') !!}
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
+                                                                {!! Form::hidden('_method', 'DELETE') !!}
+                                                                {!! Form::button(trans('delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' => 'Are you sure you want to delete this user ?')) !!}
+                                                            {!! Form::close() !!}
+                                                        </td>
+
+                                                    @endif
+                                                @endif
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                    <tbody id="search_results"></tbody>
+                                    @if(config('usersmanagement.enableSearchUsers'))
+                                        <tbody id="search_results"></tbody>
+                                    @endif
+
+                                </table>
+                                <div class="d-flex justify-content-center">    
+                                    @if(config('usersmanagement.enablePagination'))
+                                        {{ $users->links() }}
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -162,4 +300,5 @@
     @if(config('usersmanagement.enableSearchUsers'))
         @include('scripts.search-users')
     @endif
+    
 @endsection

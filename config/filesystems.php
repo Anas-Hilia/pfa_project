@@ -92,6 +92,9 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('custom_symlink') => storage_path('app'),
+
+
     ],
 
 ];

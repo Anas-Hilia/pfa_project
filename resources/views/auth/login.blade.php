@@ -62,10 +62,14 @@
                         </div>
 
                         <p class="text-center mb-3">
-                            Or Login with
+                            <div class="col-12 mb-2 d-flex justify-content-center">
+                                  <a class="btn btn-link" href="{{ route('register') }}">
+                                    Register new account
+                                </a>  
+                            </div>
                         </p>
 
-                        @include('partials.socials-icons')
+                        {{-- @include('partials.socials-icons') --}}
 
                     </form>
                 </div>
