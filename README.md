@@ -301,4 +301,4 @@ Laravel-auth is licensed under the [MIT license](https://opensource.org/licenses
 
 ### Contributors
 * Thanks goes to these [wonderful people](https://github.com/jeremykenedy/laravel-auth/graphs/contributors):
-* Please feel free to contribute and make pull requests!
+* Please feel free to contribute and make pull requests!!
