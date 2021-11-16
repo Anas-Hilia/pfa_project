@@ -217,8 +217,11 @@ DB_PASSWORD=
 * Added CRUD(Create, Read, Update, Delete) User Management
 
 ### Screenshots
-![Login](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/1laravel-auth2-login.jpg)
-![Register](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/2laravel-auth2-register.jpg)
+![Login](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/login.PNG)
+![Register](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_1.PNG)
+![Register](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_2.PNG)
+![Register](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_3.PNG)
+
 ![Registration Confirmation](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/3laravel-auth2-account-req-activation.jpg)
 ![Registration Email](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/4laravel-auth2-activation-email.jpg)
 ![Registration Complete](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/5laravel-auth2-userhome-with-flash-success.jpg)
