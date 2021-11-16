@@ -5,13 +5,7 @@
 ----------------------------------------------------------------------------------------------------------------
 
 #### Laravel Auth is a Complete Build of Laravel 8 with Email Registration Verification, Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system. Built on Bootstrap 4.
-[![Build Status](https://travis-ci.org/jeremykenedy/laravel-auth.svg?branch=master)](https://travis-ci.org/jeremykenedy/laravel-auth)
-[![StyleCI](https://styleci.io/repos/44714043/shield?branch=master)](https://styleci.io/repos/44714043)
-[![Build Status](https://scrutinizer-ci.com/g/jeremykenedy/laravel-auth/badges/build.png?b=master)](https://scrutinizer-ci.com/g/jeremykenedy/laravel-auth/build-status/master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jeremykenedy/laravel-auth/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jeremykenedy/laravel-auth/?branch=master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/jeremykenedy/laravel-auth/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
-[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors)
-[![MadeWithLaravel.com shield](https://madewithlaravel.com/storage/repo-shields/1342-shield.svg)](https://madewithlaravel.com/p/laravel-auth/shield-link)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
  ### Sponsor
@@ -137,14 +131,21 @@ php artisan vendor:publish --tag=laravel2step
 
 ###### And thats it with the caveat of setting up and configuring your development environment. I recommend [Laravel Homestead](https://laravel.com/docs/master/homestead)
 
+##### Seeded Roles
 
+|Id|Name|Description|
+|:------------|:------------|:------------|
+|1|Admin|Admin Role|
+|2|Professor|Professor Role|
+|3|Student|Student Role|
 
 ##### Seeded Users
 
 |Email|Password|Access|
 |:------------|:------------|:------------|
-|user@user.com|password|User Access|
 |admin@admin.com|password|Admin Access|
+|prof email |pwd prof |prof Access|
+|student email |pwd student |student Access|
 
 
 ### Environment File
@@ -156,7 +157,7 @@ Example `.env` file:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=laravel
+DB_DATABASE=pfa
 DB_USERNAME=root
 DB_PASSWORD=
 
