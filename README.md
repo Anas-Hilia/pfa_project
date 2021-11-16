@@ -265,10 +265,9 @@ DB_PASSWORD=
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/create_student3.PNG?raw=true)
 
 - Update :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditProf0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditProf1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditProf2.PNG?raw=true)
-<br>
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditStudent0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditStudent1.PNG?raw=true)
+
 - Delete (Professor or Student):
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteUser0.PNG?raw=true)
 
