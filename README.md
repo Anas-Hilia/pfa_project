@@ -217,69 +217,122 @@ DB_PASSWORD=
 * Added CRUD(Create, Read, Update, Delete) User Management
 
 ### Screenshots
-![Login](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/login.PNG)
-![Register_1](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/register_1.PNG)
-![Register_2](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_2.PNG)
-![Register_3](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_3.PNG)
+#### Login and Registration
+- Login :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/login.PNG?raw=true)
+- Registration (Student) :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/register_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/register_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/register_3.PNG?raw=true)
+- Forget Password :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/forget_password.PNG?raw=true)
 
-![Registration Confirmation](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/3laravel-auth2-account-req-activation.jpg)
-![Registration Email](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/4laravel-auth2-activation-email.jpg)
-![Registration Complete](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/5laravel-auth2-userhome-with-flash-success.jpg)
-![Intial User Profile](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/6laravel-auth2-profile-mapless.jpg)
-![Edit User Profile](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/7laravel-auth2-profile-edit.jpg)
-![Find Location Using Google Maps API v3](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/8laravel-auth2-edit-profile-lookup.jpg)
-![Profile Updated](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/9laravel-auth2-flash-success.jpg)
-![Profile Semi-completed](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/10laravel-auth2-profile-with-map.jpg)
+#### Admin Space :
+##### Home page : 
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/home.PNG?raw=true)
 
-![Admin Panel Users List](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/11laravel-auth2-users-list.jpg)
-![Admin Panel Delete User](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/12laravel-auth2-modal-delete.jpg)
-![Admin Panel Flash Error](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/13laravel-auth2-flash-error.jpg)
-![Admin Panel Show User](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/14laravel-auth2-show-edit.jpg)
-![Admin Panel Edit User](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/15laravel-auth2-edit-user.jpg)
-![Admin Panel Save Edits](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/16laravel-auth2-modal-save.jpg)
-![Admin Panel Create User](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/17laravel-auth-create-user.jpg)
+##### CRUD User (Professor or Student) :
+- Show All Users :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowAllUsers.PNG?raw=true)
+- Search User :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/SearchUser.PNG?raw=true)
+- Create (Professor and Student):
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/create_user.PNG?raw=true)
+###### CRUD Professor :
+- Show All Professors :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowAllProfs.PNG?raw=true)
+- Show :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowProf0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowProf1.PNG?raw=true)
+- Create :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/create_prof.PNG?raw=true)
+- Update :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/EditProf0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/EditProf1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/EditProf2.PNG?raw=true)
 
-![dashboard](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/1-dashboard.jpg)
-![drilldown](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/2-drilldown.jpg)
-![confirm-clear](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/3-confirm-clear.jpg)
-![log-cleared-msg](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/4-log-cleared-msg.jpg)
-![cleared-log](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/5-cleared-log.jpg)
-![confirm-restore](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/5-confirm-restore.jpg)
-![confirm-destroy](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/6-confirm-destroy.jpg)
-![success-destroy](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/7-success-destroy.jpg)
-![success-restored](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/8-success-restored.jpg)
-![cleared-drilldown](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-logger/9-cleared-drilldown.jpg)
+###### CRUD Student :
+- Show All Students :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowAllStudents.PNG?raw=true)
+- Show :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStudent1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStudent2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStudent3.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStudent4.PNG?raw=true)
+- Create :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/create_student1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/create_student2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/create_student3.PNG?raw=true)
 
-![Verification Page](https://s3-us-west-2.amazonaws.com/github-project-images/laravel2step/1-verification-page.jpeg)
-![Resent Email Modal](https://s3-us-west-2.amazonaws.com/github-project-images/laravel2step/2-verification-email-resent.jpeg)
-![Lock Warning Modal](https://s3-us-west-2.amazonaws.com/github-project-images/laravel2step/3-lock-warning.jpeg)
-![Locked Page](https://s3-us-west-2.amazonaws.com/github-project-images/laravel2step/4-lock-screen.jpeg)
-![Verification Email](https://s3-us-west-2.amazonaws.com/github-project-images/laravel2step/5-verification-email.jpeg)
+- Update :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/EditProf0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/EditProf1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/EditProf2.PNG?raw=true)
+<br>
+- Delete (Professor or Student):
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteUser0.PNG?raw=true)
 
-![Laravel Blocker Dashboard](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker0.jpg)
-![Laravel Blocker Search](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker1.jpg)
-![Laravel Blocker Create](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker2.jpg)
-![Laravel Blocker View](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker3.jpg)
-![Laravel Blocker Edit](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker4.jpg)
-![Laravel Blocker Delete Modal](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker5.jpg)
-![Laravel Blocker Deleted Dashboard](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker6.jpg)
-![Laravel Blocker Destroy Modal](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker7.jpg)
-![Laravel Blocker Flash Message](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker8.jpg)
-![Laravel Blocker Restore Modal](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker9.jpg)
-![Laravel Blocker Restore Flash Message](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-blocker/blocker10.jpg)
+##### Import and Export Students :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ImportAndExportStudent.PNG?raw=true)
+##### CRUD Formation :
+- Show All Formations :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowAllFormations.PNG?raw=true)
+- Show formation :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowFormation.PNG?raw=true)
+- Create :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/CreateNewFormation.PNG?raw=true)
+- Update :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/EditFormation.PNG?raw=true)
+- Delete :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteFormation0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteFormation1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteFormation2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteFormation3.PNG?raw=true)
 
-![Laravel Roles GUI Dashboard](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-1.png)
-![Laravel Roles GUI Create New Role](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-2.png)
-![Laravel Roles GUI Edit Role](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-3.png)
-![Laravel Roles GUI Show Role](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-4.png)
-![Laravel Roles GUI Delete Role](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-5.png)
-![Laravel Roles GUI Success Deleted](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-6.png)
-![Laravel Roles GUI Deleted Role Show](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-7.png)
-![Laravel Roles GUI Restore Role](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-8.png)
-![Laravel Roles GUI Delete Permission](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-9.png)
-![Laravel Roles GUI Create New Permission](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-12.png)
-![Laravel Roles GUI Roles Soft Deletes Dashboard](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-13.png)
-![Laravel Roles GUI Success Restore](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-roles/screenshots/roles-gui-15.png)
+##### CRUD Formation's Branches :
+- Show Branches of the formation "Industrie" : 
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowFormationBranches.PNG?raw=true)
+- Show :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowBranche.PNG?raw=true)
+- Create :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/CreateNewBranche.PNG?raw=true)
+- Update :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/EditBranche.PNG?raw=true)
+- Deleted : 
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteBranche0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteBranche1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteBranche2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/DeleteBranche3.PNG?raw=true)
+
+ 
+
+##### Users Recently Created :
+##### Users Recently Updated :
+##### Formations Recently Created :
+##### Formations Recently Updated :
+##### Branches Recently Created :
+##### Branches Recently Updated :
+##### Users Recently Deleted :
+##### Formations Recently Deleted :
+##### Branches Recently Deleted :
+##### Show Statistics
+- Representation of students by formation :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics1_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics1_2.PNG?raw=true)
+
+- Representation of students by branche of formation :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics2_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics2_2.PNG?raw=true)
+
+- Representation of formation by their branches depending on number of students:
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics3_0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics3_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics3_2.PNG?raw=true)
+
+- Representation of students by their payment status :
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics4_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics4_2.PNG?raw=true)
+
 
 
 ```
