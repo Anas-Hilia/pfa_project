@@ -236,7 +236,7 @@ DB_PASSWORD=
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllUsers.PNG?raw=true)
 - Search User :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/SearchUser.PNG?raw=true)
-- Create (Professor and Student):
+- Create (Professor or Student):
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/create_user.PNG?raw=true)
 ###### CRUD Professor :
 - Show All Professors :
