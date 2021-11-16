@@ -282,7 +282,7 @@ DB_PASSWORD=
 - Show formation :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowFormation.PNG?raw=true)
 - Create :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/CreateNewFormation.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/CreateNewFormation.PNG?raw=true)
 - Update :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditFormation.PNG?raw=true)
 - Delete :
@@ -319,21 +319,21 @@ DB_PASSWORD=
 ##### Branches Recently Deleted :
 ##### Show Statistics
 - Representation of students by formation :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics1_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics1_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics1_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics1_2.PNG?raw=true)
 
 - Representation of students by branche of formation :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics2_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics2_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics2_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics2_2.PNG?raw=true)
 
 - Representation of formation by their branches depending on number of students:
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics3_0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics3_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics3_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics3_0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics3_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics3_2.PNG?raw=true)
 
 - Representation of students by their payment status :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics4_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/ShowStatistics4_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics4_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics4_2.PNG?raw=true)
 
 
 
