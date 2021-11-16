@@ -29,7 +29,7 @@
 - [Seeds](#seeds)
     - [Seeded Roles](#seeded-roles)
     - [Seeded Users](#seeded-users)
-- [Routes](#routes)
+- [Routes](#routes) 
 - [Other API keys](#other-api-keys)
 - [Environment File](#environment-file)
 - [Updates](#updates)
