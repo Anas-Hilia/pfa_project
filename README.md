@@ -357,7 +357,3 @@ Formations Management is licensed under the [MIT license](https://opensource.org
 
 ### Laravel Auth License
 Laravel-auth is licensed under the [MIT license](https://opensource.org/licenses/MIT). Enjoy!
-
-### Contributors
-* Thanks goes to these [wonderful people](https://github.com/jeremykenedy/laravel-auth/graphs/contributors):
-* Please feel free to contribute and make pull requests!!
