@@ -218,9 +218,9 @@ DB_PASSWORD=
 
 ### Screenshots
 ![Login](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/login.PNG)
-![Register](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_1.PNG)
-![Register](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_2.PNG)
-![Register](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_3.PNG)
+![Register_1](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/register_1.PNG)
+![Register_2](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_2.PNG)
+![Register_3](https://github.com/Anas-Hilia/pfa_project/tree/master/screenshoots/register_3.PNG)
 
 ![Registration Confirmation](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/3laravel-auth2-account-req-activation.jpg)
 ![Registration Email](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-auth/4laravel-auth2-activation-email.jpg)
