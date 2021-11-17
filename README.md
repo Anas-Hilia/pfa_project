@@ -1,4 +1,5 @@
-## Formations Management
+Formations Management
+====================
 
 - We carried out this project in an internship at CURI - University Center for informatics Resources -, <br>                                
 - The subject : Management of students registered for continuing formations at ibn tofail university.
@@ -21,8 +22,8 @@
     </tr>
 </table>
 
-Table of contents
-=
+## Table of contents
+
 - [About](#about)
 - [Features](#features)
 - [Installation Instructions](#installation-instructions)
@@ -38,12 +39,11 @@ Table of contents
 - [Screenshots](#screenshots)
 
 
-### About
-------
+## About
 Laravel 8 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. Uses official [Bootstrap 4](https://getbootstrap.com). This also makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Project can be stood up in minutes.
 
-### Features
-------
+## Features
+
 #### A [Laravel](https://laravel.com/) 8.x with [Bootstrap](https://getbootstrap.com) 4.x project.
 
 | Laravel Auth Features  |
@@ -100,15 +100,14 @@ Laravel 8 with user authentication, registration with email confirmation, social
 |**Statistics :** Representation of students by formation, by branche of formation, by their payment status|
 |**Statistics :** Representation of formation by their branches depending on number of students|
 
-### Installation Instructions
-------
+## Installation Instructions
 1. Run `git clone https://github.com/Anas-Hilia/pfa_project.git pfa_project`
 2. Create a MySQL database for the project
 3. Configure your `.env` file
 4. Run `composer update` from the projects root folder
 
-### Seeds
-------
+## Seeds
+
 **1. Seeded Roles :**
 
 |Id|Name|Description|
@@ -126,8 +125,8 @@ Laravel 8 with user authentication, registration with email confirmation, social
 |student email |pwd student |student Access|
 
 
-### Environment File
-------
+## Environment File
+
 Example `.env` file:
 
 ```bash
@@ -156,8 +155,8 @@ DB_PASSWORD=
 * https://laravel.com/docs/master/requests
 * https://laravel.com/docs/master/errors
 
-### Screenshots
-#### Login and Registration
+## Screenshots
+### Login and Registration
 - Login :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/login.PNG?raw=true)
 - Registration (Student) :
@@ -167,18 +166,18 @@ DB_PASSWORD=
 - Forget Password :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/forget_password.PNG?raw=true)
 
-#### Admin Space :
-##### Home page : 
+### Admin Space :
+#### Home page : 
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/home.PNG?raw=true)
 
-##### CRUD User (Professor or Student) :
+#### CRUD User (Professor or Student) :
 - Show All Users :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllUsers.PNG?raw=true)
 - Search User :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/SearchUser.PNG?raw=true)
 - Create (Professor or Student):
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/create_user.PNG?raw=true)
-###### CRUD Professor :
+#### CRUD Professor :
 - Show All Professors :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllProfs.PNG?raw=true)
 - Show :
@@ -191,7 +190,7 @@ DB_PASSWORD=
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditProf1.PNG?raw=true)
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditProf2.PNG?raw=true)
 
-###### CRUD Student :
+#### CRUD Student :
 - Show All Students :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllStudents.PNG?raw=true)
 - Show :
@@ -214,9 +213,9 @@ DB_PASSWORD=
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteUser2.PNG?raw=true)
 
 
-##### Import and Export Students :
+#### Import and Export Students :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ImportAndExportStudent.PNG?raw=true)
-##### CRUD Formation :
+#### CRUD Formation :
 - Show All Formations :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllFormations.PNG?raw=true)
 - Show formation :
@@ -231,7 +230,7 @@ DB_PASSWORD=
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteFormation2.PNG?raw=true)
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteFormation3.PNG?raw=true)
 
-##### CRUD Formation's Branches :
+#### CRUD Formation's Branches :
 - Show Branches of the formation "Industrie" : 
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowFormationBranches.PNG?raw=true)
 - Show :
@@ -248,16 +247,16 @@ DB_PASSWORD=
 
  
 
-##### Users Recently Created :
-##### Users Recently Updated :
-##### Formations Recently Created :
-##### Formations Recently Updated :
-##### Branches Recently Created :
-##### Branches Recently Updated :
-##### Users Recently Deleted :
-##### Formations Recently Deleted :
-##### Branches Recently Deleted :
-##### Show Statistics
+#### Users Recently Created :
+#### Users Recently Updated :
+#### Formations Recently Created :
+#### Formations Recently Updated :
+#### Branches Recently Created :
+#### Branches Recently Updated :
+#### Users Recently Deleted :
+#### Formations Recently Deleted :
+#### Branches Recently Deleted :
+#### Show Statistics :
 - Representation of students by formation :
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics1_1.PNG?raw=true)
 ![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics1_2.PNG?raw=true)
