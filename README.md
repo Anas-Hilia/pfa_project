@@ -146,92 +146,92 @@ DB_PASSWORD=
 ## Screenshots
 ### Login and Registration
 - Login :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/login.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/login.PNG?raw=true)
 - Registration (Student) :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/register_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/register_2.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/register_3.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/register_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/register_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/register_3.PNG?raw=true)
 - Forget Password :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/forget_password.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/forget_password.PNG?raw=true)
 
 ### Admin Space :
 #### Home page : 
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/home.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/home.PNG?raw=true)
 
 #### CRUD User (Professor or Student) :
 - Show All Users :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllUsers.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowAllUsers.PNG?raw=true)
 - Search User :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/SearchUser.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/SearchUser.PNG?raw=true)
 - Create (Professor or Student):
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/create_user.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/create_user.PNG?raw=true)
 #### CRUD Professor :
 - Show All Professors :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllProfs.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowAllProfs.PNG?raw=true)
 - Show :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowProf0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowProf1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowProf0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowProf1.PNG?raw=true)
 - Create :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/create_prof.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/create_prof.PNG?raw=true)
 - Update :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditProf0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditProf1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditProf2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/EditProf0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/EditProf1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/EditProf2.PNG?raw=true)
 
 #### CRUD Student :
 - Show All Students :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllStudents.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowAllStudents.PNG?raw=true)
 - Show :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStudent1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStudent2.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStudent3.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStudent4.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStudent1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStudent2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStudent3.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStudent4.PNG?raw=true)
 - Create :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/create_student1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/create_student2.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/create_student3.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/create_student1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/create_student2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/create_student3.PNG?raw=true)
 
 - Update :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditStudent0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditStudent1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/EditStudent0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/EditStudent1.PNG?raw=true)
 
 - Delete (Professor or Student):
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteUser0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteUser1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteUser2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteUser0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteUser1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteUser2.PNG?raw=true)
 
 
 #### Import and Export Students :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ImportAndExportStudent.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ImportAndExportStudent.PNG?raw=true)
 #### CRUD Formation :
 - Show All Formations :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowAllFormations.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowAllFormations.PNG?raw=true)
 - Show formation :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowFormation.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowFormation.PNG?raw=true)
 - Create :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/CreateNewFormation.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/CreateNewFormation.PNG?raw=true)
 - Update :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditFormation.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/EditFormation.PNG?raw=true)
 - Delete :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteFormation0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteFormation1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteFormation2.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteFormation3.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteFormation0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteFormation1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteFormation2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteFormation3.PNG?raw=true)
 
 #### CRUD Formation's Branches :
 - Show Branches of the formation "Industrie" : 
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowFormationBranches.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowFormationBranches.PNG?raw=true)
 - Show :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowBranche.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowBranche.PNG?raw=true)
 - Create :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/CreateNewBranche.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/CreateNewBranche.PNG?raw=true)
 - Update :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/EditBranche.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/EditBranche.PNG?raw=true)
 - Deleted : 
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteBranche0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteBranche1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteBranche2.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/DeleteBranche3.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteBranche0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteBranche1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteBranche2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/DeleteBranche3.PNG?raw=true)
 
  
 
@@ -246,21 +246,21 @@ DB_PASSWORD=
 #### Branches Recently Deleted :
 #### Show Statistics :
 - Representation of students by formation :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics1_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics1_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics1_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics1_2.PNG?raw=true)
 
 - Representation of students by branche of formation :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics2_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics2_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics2_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics2_2.PNG?raw=true)
 
 - Representation of formation by their branches depending on number of students:
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics3_0.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics3_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics3_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics3_0.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics3_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics3_2.PNG?raw=true)
 
 - Representation of students by their payment status :
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics4_1.PNG?raw=true)
-![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshoots/admin/ShowStatistics4_2.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics4_1.PNG?raw=true)
+![alt text](https://github.com/Anas-Hilia/pfa_project/blob/master/screenshots/admin/ShowStatistics4_2.PNG?raw=true)
 
 
 
