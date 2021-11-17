@@ -3,7 +3,7 @@
 - We carried out this project in an internship at CURI - University Center for informatics Resources -, <br>                                
 - The subject : Management of students registered for continuing formations at ibn tofail university.
 
-----------------------------------------------------------------------------------------------------------------
+-----------
 
 - Laravel Auth is a Complete Build of Laravel 8 with Email Registration Verification, Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system. Built on Bootstrap 4.
 
@@ -21,15 +21,16 @@
     </tr>
 </table>
 
-#### Table of contents
+Table of contents
+=
 - [About](#about)
 - [Features](#features)
 - [Installation Instructions](#installation-instructions)
     - [Build the Front End Assets with Mix](#build-the-front-end-assets-with-mix)
     - [Optionally Build Cache](#optionally-build-cache)
 - [Seeds](#seeds)
-    - [Seeded Roles](#seeded-roles)
-    - [Seeded Users](#seeded-users)
+    - [Seeded Roles](#seeds)
+    - [Seeded Users](#seeds)
 - [Routes](#routes) 
 - [Other API keys](#other-api-keys)
 - [Environment File](#environment-file)
@@ -38,9 +39,11 @@
 
 
 ### About
+------
 Laravel 8 with user authentication, registration with email confirmation, social media authentication, password recovery, and captcha protection. Uses official [Bootstrap 4](https://getbootstrap.com). This also makes full use of Controllers for the routes, templates for the views, and makes use of middleware for routing. Project can be stood up in minutes.
 
 ### Features
+------
 #### A [Laravel](https://laravel.com/) 8.x with [Bootstrap](https://getbootstrap.com) 4.x project.
 
 | Laravel Auth Features  |
@@ -98,13 +101,15 @@ Laravel 8 with user authentication, registration with email confirmation, social
 |**Statistics :** Representation of formation by their branches depending on number of students|
 
 ### Installation Instructions
+------
 1. Run `git clone https://github.com/Anas-Hilia/pfa_project.git pfa_project`
 2. Create a MySQL database for the project
 3. Configure your `.env` file
 4. Run `composer update` from the projects root folder
 
 ### Seeds
-##### Seeded Roles
+------
+**1. Seeded Roles :**
 
 |Id|Name|Description|
 |:------------|:------------|:------------|
@@ -112,7 +117,7 @@ Laravel 8 with user authentication, registration with email confirmation, social
 |2|Professor|Professor Role|
 |3|Student|Student Role|
 
-##### Seeded Users
+**2. Seeded Users :**
 
 |Email|Password|Access|
 |:------------|:------------|:------------|
@@ -122,6 +127,7 @@ Laravel 8 with user authentication, registration with email confirmation, social
 
 
 ### Environment File
+------
 Example `.env` file:
 
 ```bash
