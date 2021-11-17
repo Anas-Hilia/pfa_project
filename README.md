@@ -6,7 +6,8 @@ Formations Management
 
 -----------
 
-- Laravel Auth is a Complete Build of Laravel 8 with Email Registration Verification, Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system. Built on Bootstrap 4.
+- We based our project on a Simple Laravel Auth App .
+- Laravel Auth App : is a Complete Build of Laravel 8 with Email Registration Verification, Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system. Built on Bootstrap 4.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -16,8 +17,6 @@ Formations Management
 - [About](#about)
 - [Features](#features)
 - [Installation Instructions](#installation-instructions)
-    - [Build the Front End Assets with Mix](#build-the-front-end-assets-with-mix)
-    - [Optionally Build Cache](#optionally-build-cache)
 - [Seeds](#seeds)
     - [Seeded Roles](#seeds)
     - [Seeded Users](#seeds)
