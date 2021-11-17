@@ -104,7 +104,7 @@ Laravel 8 with user authentication, registration with email confirmation, social
 4. Run `composer update` from the projects root folder
 
 ### Seeds :
-1. **Seeded Roles**
+##### Seeded Roles :
 
 |Id|Name|Description|
 |:------------|:------------|:------------|
@@ -112,7 +112,7 @@ Laravel 8 with user authentication, registration with email confirmation, social
 |2|Professor|Professor Role|
 |3|Student|Student Role|
 
-2. **Seeded Users**
+##### Seeded Users :
 
 |Email|Password|Access|
 |:------------|:------------|:------------|
